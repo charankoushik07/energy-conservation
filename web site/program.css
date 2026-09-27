@@ -1,0 +1,1344 @@
+
+/* =========================
+   GLOBAL
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+:root {
+    --bg: #05070a;
+    --bg2: #0b1015;
+    --card: #101820;
+    --neon: #00ff9d;
+    --neon2: #00d9ff;
+    --white: #ffffff;
+    --gray: #a8b2bd;
+    --border: rgba(0,255,157,0.2);
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    background: var(--bg);
+    color: var(--white);
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button,
+input,
+textarea {
+    font-family: inherit;
+}
+
+section {
+    scroll-margin-top: 90px;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 75px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 7%;
+
+    background: rgba(5,7,10,0.85);
+    backdrop-filter: blur(15px);
+
+    border-bottom: 1px solid rgba(0,255,157,0.1);
+
+    z-index: 1000;
+}
+
+.logo {
+    font-family: "Orbitron", sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.logo i {
+    color: var(--neon);
+    margin-right: 6px;
+}
+
+.logo span,
+.footer-logo span {
+    color: var(--neon);
+}
+
+.navbar {
+    display: flex;
+    gap: 25px;
+}
+
+.navbar a {
+    font-size: 0.85rem;
+    color: var(--gray);
+    transition: 0.3s;
+}
+
+.navbar a:hover,
+.navbar a.active {
+    color: var(--neon);
+    text-shadow: 0 0 12px var(--neon);
+}
+
+.menu-icon {
+    display: none;
+    font-size: 1.5rem;
+    color: var(--neon);
+    cursor: pointer;
+}
+
+
+/* =========================
+   HOME
+========================= */
+
+.home {
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 120px 8% 60px;
+
+    background:
+        radial-gradient(circle at 80% 40%,
+        rgba(0,255,157,0.12),
+        transparent 35%),
+        radial-gradient(circle at 20% 80%,
+        rgba(0,217,255,0.08),
+        transparent 30%);
+}
+
+.home-content {
+    max-width: 700px;
+}
+
+.badge {
+    display: inline-block;
+
+    padding: 10px 18px;
+
+    border: 1px solid var(--border);
+    border-radius: 30px;
+
+    color: var(--neon);
+
+    background: rgba(0,255,157,0.05);
+
+    margin-bottom: 25px;
+}
+
+.badge i {
+    margin-right: 8px;
+}
+
+.home h1 {
+    font-family: "Orbitron", sans-serif;
+
+    font-size: clamp(2.5rem, 6vw, 5rem);
+
+    line-height: 1.1;
+
+    margin-bottom: 25px;
+}
+
+.home h1 span {
+    display: block;
+
+    color: var(--neon);
+
+    text-shadow:
+        0 0 10px rgba(0,255,157,0.5),
+        0 0 30px rgba(0,255,157,0.3);
+}
+
+.home p {
+    color: var(--gray);
+
+    line-height: 1.8;
+
+    max-width: 650px;
+
+    margin-bottom: 35px;
+}
+
+.home-buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    padding: 14px 25px;
+
+    border: none;
+    border-radius: 8px;
+
+    background: var(--neon);
+
+    color: #00140d;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 0 20px rgba(0,255,157,0.5);
+}
+
+.btn.secondary {
+    background: transparent;
+
+    color: var(--neon);
+
+    border: 1px solid var(--neon);
+}
+
+
+/* =========================
+   ENERGY ANIMATION
+========================= */
+
+.energy-animation {
+    position: relative;
+
+    width: 380px;
+    height: 380px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.electric-circle {
+    width: 180px;
+    height: 180px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: rgba(0,255,157,0.08);
+
+    border: 2px solid var(--neon);
+
+    box-shadow:
+        0 0 30px var(--neon),
+        inset 0 0 30px rgba(0,255,157,0.2);
+
+    animation: pulse 2s infinite;
+}
+
+.electric-circle i {
+    font-size: 75px;
+    color: var(--neon);
+
+    filter: drop-shadow(0 0 15px var(--neon));
+}
+
+.energy-ring {
+    position: absolute;
+
+    border: 1px solid var(--neon);
+
+    border-radius: 50%;
+
+    opacity: 0.5;
+
+    animation: rotate 10s linear infinite;
+}
+
+.ring1 {
+    width: 230px;
+    height: 230px;
+}
+
+.ring2 {
+    width: 300px;
+    height: 300px;
+
+    border-color: var(--neon2);
+
+    animation-duration: 15s;
+}
+
+.ring3 {
+    width: 370px;
+    height: 370px;
+
+    animation-duration: 20s;
+}
+
+
+/* =========================
+   STATS
+========================= */
+
+.stats {
+    display: grid;
+
+    grid-template-columns: repeat(4,1fr);
+
+    gap: 20px;
+
+    padding: 50px 8%;
+
+    background: #080d11;
+
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+}
+
+.stat-box {
+    text-align: center;
+
+    padding: 25px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 15px;
+
+    background: rgba(0,255,157,0.025);
+
+    transition: 0.3s;
+}
+
+.stat-box:hover {
+    transform: translateY(-7px);
+
+    border-color: var(--neon);
+
+    box-shadow: 0 0 20px rgba(0,255,157,0.12);
+}
+
+.stat-box i {
+    color: var(--neon);
+
+    font-size: 28px;
+
+    margin-bottom: 10px;
+}
+
+.stat-box h2 {
+    font-family: "Orbitron";
+
+    font-size: 2rem;
+
+    color: var(--neon);
+}
+
+.stat-box p {
+    color: var(--gray);
+}
+
+
+/* =========================
+   SECTIONS
+========================= */
+
+.section {
+    padding: 110px 8%;
+}
+
+.dark-section {
+    background: var(--bg2);
+}
+
+.section-title {
+    text-align: center;
+
+    max-width: 750px;
+
+    margin: 0 auto 60px;
+}
+
+.section-title span {
+    color: var(--neon);
+
+    font-family: "Orbitron";
+
+    font-size: 0.9rem;
+}
+
+.section-title h2 {
+    font-family: "Orbitron";
+
+    font-size: clamp(2rem,4vw,3rem);
+
+    margin: 12px 0;
+}
+
+.section-title h2 b {
+    color: var(--neon);
+}
+
+.section-title p {
+    color: var(--gray);
+
+    line-height: 1.7;
+}
+
+
+/* =========================
+   ABOUT
+========================= */
+
+.about-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3,1fr);
+
+    gap: 25px;
+}
+
+.about-card {
+    padding: 35px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 15px;
+
+    background: var(--card);
+
+    transition: 0.3s;
+}
+
+.about-card:hover {
+    transform: translateY(-8px);
+
+    border-color: var(--neon);
+}
+
+.about-card i {
+    font-size: 35px;
+
+    color: var(--neon);
+
+    margin-bottom: 20px;
+}
+
+.about-card h3 {
+    margin-bottom: 12px;
+}
+
+.about-card p {
+    color: var(--gray);
+
+    line-height: 1.7;
+}
+
+
+/* =========================
+   WHY
+========================= */
+
+.reason-grid {
+    display: grid;
+
+    grid-template-columns: repeat(4,1fr);
+
+    gap: 20px;
+}
+
+.reason-card {
+    text-align: center;
+
+    padding: 30px 20px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 15px;
+
+    transition: 0.3s;
+}
+
+.reason-card:hover {
+    border-color: var(--neon);
+
+    box-shadow: 0 0 25px rgba(0,255,157,0.1);
+}
+
+.reason-card i {
+    font-size: 35px;
+
+    color: var(--neon);
+
+    margin-bottom: 20px;
+}
+
+.reason-card h3 {
+    margin-bottom: 12px;
+}
+
+.reason-card p {
+    color: var(--gray);
+
+    line-height: 1.6;
+
+    font-size: 0.9rem;
+}
+
+
+/* =========================
+   TIPS
+========================= */
+
+.tips-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3,1fr);
+
+    gap: 25px;
+}
+
+.tip-card {
+    padding: 30px;
+
+    border-radius: 15px;
+
+    border: 1px solid var(--border);
+
+    background: var(--card);
+
+    transition: 0.3s;
+}
+
+.tip-card:hover {
+    transform: translateY(-7px);
+
+    border-color: var(--neon);
+}
+
+.tip-icon {
+    width: 55px;
+    height: 55px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 12px;
+
+    background: rgba(0,255,157,0.08);
+
+    color: var(--neon);
+
+    font-size: 22px;
+
+    margin-bottom: 20px;
+}
+
+.tip-card h3 {
+    margin-bottom: 10px;
+}
+
+.tip-card p {
+    color: var(--gray);
+
+    line-height: 1.6;
+}
+
+
+/* =========================
+   EFFICIENCY
+========================= */
+
+.efficiency-content {
+    display: grid;
+
+    grid-template-columns: 1.5fr 1fr;
+
+    gap: 60px;
+
+    align-items: center;
+}
+
+.efficiency-text h3 {
+    font-family: "Orbitron";
+
+    font-size: 2rem;
+
+    margin-bottom: 20px;
+}
+
+.efficiency-text h3 span {
+    color: var(--neon);
+}
+
+.efficiency-text p {
+    color: var(--gray);
+
+    line-height: 1.8;
+
+    margin-bottom: 25px;
+}
+
+.efficiency-text ul {
+    list-style: none;
+}
+
+.efficiency-text li {
+    margin: 15px 0;
+
+    color: #dce5eb;
+}
+
+.efficiency-text li i {
+    color: var(--neon);
+
+    margin-right: 10px;
+}
+
+.efficiency-box {
+    min-height: 300px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    padding: 30px;
+
+    border: 1px solid var(--neon);
+
+    border-radius: 20px;
+
+    box-shadow: 0 0 40px rgba(0,255,157,0.08);
+}
+
+.efficiency-box i {
+    font-size: 70px;
+
+    color: var(--neon);
+
+    margin-bottom: 20px;
+}
+
+.efficiency-box h3 {
+    font-family: "Orbitron";
+
+    margin-bottom: 10px;
+}
+
+.efficiency-box p {
+    color: var(--gray);
+}
+
+
+/* =========================
+   RENEWABLE
+========================= */
+
+.renewable-grid {
+    display: grid;
+
+    grid-template-columns: repeat(4,1fr);
+
+    gap: 20px;
+}
+
+.renew-card {
+    padding: 35px 25px;
+
+    text-align: center;
+
+    border: 1px solid var(--border);
+
+    border-radius: 15px;
+
+    background: var(--card);
+
+    transition: 0.3s;
+}
+
+.renew-card:hover {
+    transform: translateY(-8px);
+
+    border-color: var(--neon2);
+}
+
+.renew-card i {
+    color: var(--neon2);
+
+    font-size: 40px;
+
+    margin-bottom: 20px;
+}
+
+.renew-card h3 {
+    margin-bottom: 12px;
+}
+
+.renew-card p {
+    color: var(--gray);
+
+    line-height: 1.6;
+}
+
+
+/* =========================
+   CALCULATOR
+========================= */
+
+.calculator {
+    max-width: 700px;
+
+    margin: auto;
+
+    padding: 40px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 20px;
+
+    background: var(--card);
+
+    box-shadow: 0 0 40px rgba(0,255,157,0.05);
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #dce5eb;
+}
+
+.input-group input {
+    width: 100%;
+
+    padding: 14px 16px;
+
+    background: #080d11;
+
+    border: 1px solid #26323c;
+
+    color: white;
+
+    border-radius: 8px;
+
+    outline: none;
+}
+
+.input-group input:focus {
+    border-color: var(--neon);
+
+    box-shadow: 0 0 10px rgba(0,255,157,0.1);
+}
+
+.calculate-btn {
+    width: 100%;
+
+    margin-top: 5px;
+}
+
+.calculator-result {
+    margin-top: 25px;
+
+    padding: 25px;
+
+    text-align: center;
+
+    border-radius: 12px;
+
+    background: rgba(0,255,157,0.05);
+
+    border: 1px solid var(--border);
+}
+
+.calculator-result i {
+    color: var(--neon);
+
+    font-size: 30px;
+
+    margin-bottom: 10px;
+}
+
+.calculator-result h3 {
+    margin-bottom: 5px;
+}
+
+.calculator-result p {
+    color: var(--gray);
+}
+
+
+/* =========================
+   QUIZ
+========================= */
+
+.quiz-box {
+    max-width: 750px;
+
+    margin: auto;
+
+    padding: 40px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 20px;
+
+    background: var(--card);
+
+    text-align: center;
+}
+
+.quiz-box h3 {
+    margin-bottom: 30px;
+
+    line-height: 1.6;
+}
+
+.options {
+    display: grid;
+
+    grid-template-columns: repeat(2,1fr);
+
+    gap: 15px;
+}
+
+.options button {
+    padding: 15px;
+
+    background: #080d11;
+
+    border: 1px solid #27333d;
+
+    color: white;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.options button:hover {
+    border-color: var(--neon);
+
+    color: var(--neon);
+}
+
+#quizResult {
+    margin-top: 25px;
+
+    font-weight: 600;
+}
+
+
+/* =========================
+   STATISTICS
+========================= */
+
+.awareness {
+    max-width: 800px;
+
+    margin: auto;
+}
+
+.progress-card {
+    margin-bottom: 30px;
+}
+
+.progress-title {
+    display: flex;
+
+    justify-content: space-between;
+
+    margin-bottom: 10px;
+
+    color: #dce5eb;
+}
+
+.progress-title span:last-child {
+    color: var(--neon);
+}
+
+.progress {
+    height: 10px;
+
+    background: #202930;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+}
+
+.progress div {
+    height: 100%;
+
+    background: linear-gradient(
+        90deg,
+        var(--neon),
+        var(--neon2)
+    );
+
+    border-radius: 20px;
+}
+
+
+/* =========================
+   CONTACT
+========================= */
+
+.contact-box {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 50px;
+
+    max-width: 1000px;
+
+    margin: auto;
+}
+
+.contact-info h3 {
+    font-family: "Orbitron";
+
+    font-size: 1.8rem;
+
+    margin-bottom: 15px;
+}
+
+.contact-info > p {
+    color: var(--gray);
+
+    line-height: 1.8;
+
+    margin-bottom: 30px;
+}
+
+.contact-item {
+    display: flex;
+
+    gap: 15px;
+
+    align-items: center;
+
+    margin: 20px 0;
+
+    color: var(--gray);
+}
+
+.contact-item i {
+    color: var(--neon);
+
+    font-size: 20px;
+}
+
+.contact-form {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 15px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+
+    padding: 14px 16px;
+
+    border-radius: 8px;
+
+    border: 1px solid #26323c;
+
+    background: var(--card);
+
+    color: white;
+
+    outline: none;
+
+    resize: vertical;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: var(--neon);
+}
+
+.contact-form .btn {
+    border: none;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    padding: 50px 8%;
+
+    text-align: center;
+
+    background: #030507;
+
+    border-top: 1px solid var(--border);
+}
+
+.footer-logo {
+    font-family: "Orbitron";
+
+    font-size: 1.5rem;
+
+    margin-bottom: 15px;
+}
+
+.footer-logo i {
+    color: var(--neon);
+}
+
+footer > p {
+    color: var(--gray);
+
+    margin: 10px 0;
+}
+
+.social-icons {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 15px;
+
+    margin: 25px 0;
+}
+
+.social-icons a {
+    width: 40px;
+    height: 40px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid var(--border);
+
+    border-radius: 50%;
+
+    color: var(--neon);
+
+    transition: 0.3s;
+}
+
+.social-icons a:hover {
+    background: var(--neon);
+
+    color: #00140d;
+
+    box-shadow: 0 0 15px var(--neon);
+}
+
+.copyright {
+    font-size: 0.8rem;
+}
+
+
+/* =========================
+   TOP BUTTON
+========================= */
+
+#topButton {
+    position: fixed;
+
+    right: 25px;
+    bottom: 25px;
+
+    width: 45px;
+    height: 45px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: var(--neon);
+
+    color: #00140d;
+
+    cursor: pointer;
+
+    display: none;
+
+    z-index: 500;
+}
+
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes pulse {
+
+    0%,100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.08);
+    }
+
+}
+
+@keyframes rotate {
+
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 1100px) {
+
+    .navbar {
+        gap: 15px;
+    }
+
+    .navbar a {
+        font-size: 0.75rem;
+    }
+
+    .energy-animation {
+        transform: scale(0.8);
+    }
+
+    .reason-grid,
+    .renewable-grid {
+        grid-template-columns: repeat(2,1fr);
+    }
+
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 800px) {
+
+    .header {
+        padding: 0 5%;
+    }
+
+    .menu-icon {
+        display: block;
+    }
+
+    .navbar {
+
+        position: absolute;
+
+        top: 75px;
+        left: -100%;
+
+        width: 100%;
+
+        padding: 25px;
+
+        display: flex;
+
+        flex-direction: column;
+
+        gap: 18px;
+
+        background: #070b0f;
+
+        border-bottom: 1px solid var(--border);
+
+        transition: 0.4s;
+    }
+
+    .navbar.active {
+        left: 0;
+    }
+
+    .navbar a {
+        font-size: 1rem;
+    }
+
+
+    .home {
+
+        flex-direction: column;
+
+        text-align: center;
+
+        padding: 120px 5% 60px;
+    }
+
+    .home p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .home-buttons {
+        justify-content: center;
+    }
+
+    .energy-animation {
+        margin-top: 50px;
+
+        transform: scale(0.7);
+    }
+
+
+    .stats {
+        grid-template-columns: repeat(2,1fr);
+
+        padding: 40px 5%;
+    }
+
+
+    .section {
+        padding: 80px 5%;
+    }
+
+
+    .about-grid,
+    .tips-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .reason-grid,
+    .renewable-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+
+    .efficiency-content {
+        grid-template-columns: 1fr;
+    }
+
+
+    .contact-box {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media (max-width: 500px) {
+
+    .logo {
+        font-size: 1.2rem;
+    }
+
+    .home h1 {
+        font-size: 2.3rem;
+    }
+
+    .badge {
+        font-size: 0.75rem;
+    }
+
+    .energy-animation {
+        width: 300px;
+        height: 300px;
+    }
+
+    .electric-circle {
+        width: 130px;
+        height: 130px;
+    }
+
+    .electric-circle i {
+        font-size: 50px;
+    }
+
+    .ring1 {
+        width: 180px;
+        height: 180px;
+    }
+
+    .ring2 {
+        width: 230px;
+        height: 230px;
+    }
+
+    .ring3 {
+        width: 290px;
+        height: 290px;
+    }
+
+    .stats {
+        grid-template-columns: 1fr;
+    }
+
+    .reason-grid,
+    .renewable-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .options {
+        grid-template-columns: 1fr;
+    }
+
+    .calculator,
+    .quiz-box {
+        padding: 25px 20px;
+    }
+
+}
